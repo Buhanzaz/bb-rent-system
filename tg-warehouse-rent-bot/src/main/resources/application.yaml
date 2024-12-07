@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: telegram-rent-admin-image-bot
+
+telegram:
+  bot:
+    webhook:
+      url: YOUR_WEBHOOK_URL
+    path: YOUR_WEBHOOK_PATH
+    token: YOU_TG_TOKEN
+  api:
+    url: https://api.telegram.org/file/bot
+
+server:
+  port: 8081
+
+logging:
+  level:
+    web: debug
+
+
