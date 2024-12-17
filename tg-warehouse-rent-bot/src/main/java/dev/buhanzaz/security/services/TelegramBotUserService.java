@@ -1,6 +1,6 @@
-package dev.buhanzaz.config;
+package dev.buhanzaz.security.services;
 
-import org.springframework.stereotype.Component;
+import dev.buhanzaz.security.model.User;
 import org.springframework.stereotype.Service;
 
 @Service

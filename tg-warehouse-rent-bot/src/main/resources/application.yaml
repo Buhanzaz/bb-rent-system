@@ -17,9 +17,9 @@ spring:
 telegram:
   bot:
     webhook:
-      url: YOUR_WEBHOOK_URL
-    path: YOUR_WEBHOOK_PATH
-    token: YOU_TG_TOKEN
+      domain: https://btn1c1-77-83-85-72.ru.tuna.am
+      path: webhook
+    token: 7755881758:AAGDve_KJk9VTH6EbODaO1nlpqrYnhxd1T0
   api:
     url: https://api.telegram.org/file/bot
 
@@ -38,6 +38,6 @@ server:
 
 logging:
   level:
-    web: trace
+    web: debug
 
 

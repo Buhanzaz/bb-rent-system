@@ -1,5 +1,7 @@
 package dev.buhanzaz.config;
 
+import dev.buhanzaz.security.filters.TelegramUserVerificationFilter;
+import dev.buhanzaz.security.services.TelegramBotUserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,7 +18,6 @@ import org.telegram.telegrambots.meta.generics.TelegramClient;
 @EnableWebSecurity
 @RequiredArgsConstructor
 public class SecurityConfig {
-    private final TelegramClient telegramClient;
     private final TelegramBotUserService telegramBotUserService;
 
     @Bean
@@ -26,7 +27,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(req -> req
                         .requestMatchers("/webhook").permitAll()
                         .anyRequest().denyAll())
-                .addFilterBefore(new TelegramUserVerificationFilter(telegramBotUserService, telegramClient),
+                .addFilterBefore(new TelegramUserVerificationFilter(telegramBotUserService),
                         UsernamePasswordAuthenticationFilter.class);
 
         return http.build();

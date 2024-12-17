@@ -1,9 +1,7 @@
-package dev.buhanzaz.config;
+package dev.buhanzaz.security.model;
 
 import lombok.Builder;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 @Data
 @Builder
