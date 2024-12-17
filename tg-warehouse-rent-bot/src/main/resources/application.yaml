@@ -1,6 +1,18 @@
 spring:
   application:
     name: telegram-rent-admin-image-bot
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  datasource:
+    url: jdbc:h2:mem:mydb
+    username: sa
+    password: password
+    driverClassName: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
 
 telegram:
   bot:
@@ -11,11 +23,21 @@ telegram:
   api:
     url: https://api.telegram.org/file/bot
 
+rabbitmq:
+  queue:
+    json:
+      name: image-messages-queue
+  exchange:
+    name: test
+  routing:
+    json:
+      key: my-key
+
 server:
   port: 8081
 
 logging:
   level:
-    web: debug
+    web: trace
 
 
