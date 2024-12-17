@@ -6,6 +6,7 @@ import dev.buhanzaz.handlers.message.ContentHandler;
 import dev.buhanzaz.state.CabinIdStateManager;
 import dev.buhanzaz.state.MenuState;
 import dev.buhanzaz.state.MenuStateManager;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.methods.botapimethods.BotApiMethod;
@@ -15,6 +16,7 @@ import static dev.buhanzaz.utils.MessageUtils.getUserId;
 import static dev.buhanzaz.validate.ContentTypeValidator.isImageDocument;
 import static dev.buhanzaz.validate.MenuValidated.isAddImageMenu;
 
+@Slf4j
 @Component
 // TODO Нужно придумать проверку чтобы в imageStateService не было одинаковых chat_id
 public class MessageDispatcherImpl implements MessageDispatcher {
@@ -37,7 +39,7 @@ public class MessageDispatcherImpl implements MessageDispatcher {
     }
 
     public BotApiMethod<?> dispatcher(Message message) {
-
+        log.debug("Successfully dispatched message {}", message);
         if (message.isCommand()) {
             return commandHandler.handler(message);
         }

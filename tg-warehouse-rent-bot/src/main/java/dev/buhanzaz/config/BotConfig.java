@@ -18,7 +18,7 @@ public class BotConfig {
     public SpringTelegramWebhookBot webhookBot() {
         return new SpringTelegramWebhookBot(
                 webhookService.getWebhookPath(),
-                updateDispatcher::dispatcher,
+                updateDispatcher::dispatcher,//TODO Создать прослойку которая будет определять валидный update или нет security
                 webhookService::registerWebhook,
                 webhookService::deleteWebhook);
     }

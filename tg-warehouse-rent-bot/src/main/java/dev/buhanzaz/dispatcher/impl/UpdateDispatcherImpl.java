@@ -21,6 +21,7 @@ public class UpdateDispatcherImpl implements UpdateDispatcher {
     }
 
     public BotApiMethod<?> dispatcher(@NotNull Update update) {
+        log.debug("Successfully dispatching update {}", update);
         if (update.hasMessage()) {
             final Message message = update.getMessage();
             return messageDispatcher.dispatcher(message);
