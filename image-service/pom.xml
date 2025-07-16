@@ -4,17 +4,21 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>deb.buhanzaz</groupId>
+        <groupId>dev.buhanzaz</groupId>
         <artifactId>bb-rent-system</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
     <artifactId>image-service</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <io.minio.version>8.5.17</io.minio.version>
+        <org.apache.commons.lang3.version>3.18.0</org.apache.commons.lang3.version>
+
     </properties>
 
     <dependencies>
@@ -25,11 +29,24 @@
         <dependency>
             <groupId>io.minio</groupId>
             <artifactId>minio</artifactId>
-            <version>8.5.17</version>
+            <version>${io.minio.version}</version>
+        </dependency>
+<!--Minio 8.5.17 The vulnerability of the CVE-2025-48924 added dependence to solve this problem.-->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${org.apache.commons.lang3.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
+<!--I may have to move the dependency to the parent POM-->
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+            <version>${org.mapstruct.version}</version>
+        </dependency>
     </dependencies>
+
 </project>

@@ -1,13 +1,11 @@
-package deb.buhanzaz;
+package dev.buhanzaz;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BbRentSystemApplication {
-
+public class ImageServiceApp {
     public static void main(String[] args) {
-        SpringApplication.run(BbRentSystemApplication.class, args);
+        SpringApplication.run(ImageServiceApp.class, args);
     }
-
 }

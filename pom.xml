@@ -8,7 +8,7 @@
         <version>3.5.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>deb.buhanzaz</groupId>
+    <groupId>dev.buhanzaz</groupId>
     <artifactId>bb-rent-system</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
@@ -19,7 +19,18 @@
         <license/>
     </licenses>
     <developers>
-        <developer/>
+        <developer>
+            <id>Buhanzaz</id>
+            <name>Eugene Bukhanov</name>
+            <email>Buhanza21@yandex.ru</email>
+            <organization>Buhanzaz inc. That is, I am</organization>
+            <!--TELEGRAM-->
+            <organizationUrl>@Gsom21</organizationUrl>
+            <roles>
+                <role>all</role>
+            </roles>
+            <timezone>Russia/Moscow</timezone>
+        </developer>
     </developers>
     <modules>
         <module>image-service</module>
@@ -32,6 +43,8 @@
     </scm>
     <properties>
         <java.version>17</java.version>
+        <org.projectlombok.version>1.18.38</org.projectlombok.version>
+        <org.mapstruct.version>1.6.3</org.mapstruct.version>
     </properties>
     <dependencies>
         <dependency>
@@ -48,7 +61,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <optional>true</optional>
+            <version>${org.projectlombok.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -64,9 +77,15 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
                     <annotationProcessorPaths>
+                            <path>
+                                <groupId>org.mapstruct</groupId>
+                                <artifactId>mapstruct-processor</artifactId>
+                                <version>${org.mapstruct.version}</version>
+                            </path>
                         <path>
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok</artifactId>
+                            <version>${org.projectlombok.version}</version>
                         </path>
                     </annotationProcessorPaths>
                 </configuration>
